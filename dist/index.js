@@ -21,22 +21,28 @@ const cacheControl = {
   // Only load from cache.
   cacheOnly: 'cacheOnly'
 };
+
 const resolveDefaultSource = defaultSource => {
   if (!defaultSource) {
     return null;
   }
+
   if (Platform.OS === 'android') {
     // Android receives a URI string, and resolves into a Drawable using RN's methods.
     const resolved = Image.resolveAssetSource(defaultSource);
+
     if (resolved) {
       return resolved.uri;
     }
+
     return null;
-  }
-  // iOS or other number mapped assets
+  } // iOS or other number mapped assets
   // In iOS the number is passed, and bridged automatically into a UIImage
+
+
   return defaultSource;
 };
+
 function FastImageBase({
   source,
   defaultSource,
@@ -55,8 +61,7 @@ function FastImageBase({
   ...props
 }) {
   if (fallback) {
-    const cleanedSource = {
-      ...source
+    const cleanedSource = { ...source
     };
     delete cleanedSource.cache;
     const resolvedSource = Image.resolveAssetSource(cleanedSource);
@@ -77,6 +82,7 @@ function FastImageBase({
       resizeMode: resizeMode
     })), children);
   }
+
   const resolvedSource = Image.resolveAssetSource(source);
   const resolvedDefaultSource = resolveDefaultSource(defaultSource);
   return /*#__PURE__*/React.createElement(View, {
@@ -95,6 +101,7 @@ function FastImageBase({
     resizeMode: resizeMode
   })), children);
 }
+
 const FastImageMemo = /*#__PURE__*/memo(FastImageBase);
 const FastImageComponent = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/React.createElement(FastImageMemo, _extends({
   forwardedRef: ref
@@ -104,16 +111,19 @@ const FastImage = FastImageComponent;
 FastImage.resizeMode = resizeMode;
 FastImage.cacheControl = cacheControl;
 FastImage.priority = priority;
+
 FastImage.preload = sources => NativeModules.FastImageView.preload(sources);
+
 FastImage.clearMemoryCache = () => NativeModules.FastImageView.clearMemoryCache();
+
 FastImage.clearDiskCache = () => NativeModules.FastImageView.clearDiskCache();
+
 const styles = StyleSheet.create({
   imageContainer: {
     overflow: 'hidden'
   }
-});
+}); // Types of requireNativeComponent are not correct.
 
-// Types of requireNativeComponent are not correct.
 const FastImageView = requireNativeComponent('FastImageView', FastImage, {
   nativeOnly: {
     onFastImageLoadStart: true,
@@ -124,4 +134,4 @@ const FastImageView = requireNativeComponent('FastImageView', FastImage, {
   }
 });
 
-export { FastImage as default };
+export default FastImage;

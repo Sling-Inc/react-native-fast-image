@@ -2058,6 +2058,13 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.3.1.tgz#24691fa2b0c3ec8c0d34bfcfd495edac5593ebb4"
   integrity sha512-N87VuQi7HEeRJkhzovao/JviiqKjDKMVKxKMfUvSKw+MbkbW8R0nA3fi/MQhhlxV2fQ+2ReM+/Nt4efdrJx3zA==
 
+"@types/node@^24.0.15":
+  version "24.0.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.15.tgz#f34fbc973e7d64217106e0c59ed8761e6b51381e"
+  integrity sha512-oaeTSbCef7U/z7rDeJA138xpG3NuKc64/rZ2qmUFkFJmnMsAPaluIifqyWd8hSSMxyP9oie3dLAqYPblag9KgA==
+  dependencies:
+    undici-types "~7.8.0"
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
@@ -9992,6 +9999,11 @@ unbox-primitive@^1.0.1:
     has-bigints "^1.0.1"
     has-symbols "^1.0.2"
     which-boxed-primitive "^1.0.2"
+
+undici-types@~7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-7.8.0.tgz#de00b85b710c54122e44fbfd911f8d70174cd294"
+  integrity sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
